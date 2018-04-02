@@ -66,15 +66,15 @@ classdef VentricularSeptalDefectCirculation < handle
             
             pulmonaryFlow = x(6);
             aorticFlow = x(7);
-            t
+            
             if x(1) > x(2) || x(3) > x(4) %flow == 0 
-                disp("1 - Filling");
+                %disp("1 - Filling");
                 A = filling(C, t, 1);
             elseif (x(4) > x(5)) || (pulmonaryFlow > 0) || (aorticFlow > 0)%FINISHED
-                disp("2 - Ejection");
+                %disp("2 - Ejection");
                 A = ejection(C, t, 1);
             else %flow == 0
-                disp("0 - Isovolumic");
+                %disp("0 - Isovolumic");
                 A = isovolumic(C, t, 1);
             end
             dx = A*(x);
